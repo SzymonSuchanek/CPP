@@ -6,7 +6,7 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:44 by ssuchane          #+#    #+#              #
-#    Updated: 2024/12/29 19:36:34 by ssuchane         ###   ########.fr        #
+#    Updated: 2024/12/30 17:54:56 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(OBJ) $(TARGET)
 
 re: fclean all
