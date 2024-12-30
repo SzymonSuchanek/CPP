@@ -6,14 +6,14 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:44 by ssuchane          #+#    #+#              #
-#    Updated: 2024/12/30 17:43:05 by ssuchane         ###   ########.fr        #
+#    Updated: 2024/12/30 17:50:34 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = tests.cpp Account.cpp Account.hpp
+SRC = tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
 
 TARGET = account
@@ -30,6 +30,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(OBJ) $(TARGET)
 
 re: fclean all
