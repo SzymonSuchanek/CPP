@@ -6,7 +6,7 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2024/12/30 20:06:21 by ssuchane         ###   ########.fr        #
+#    Updated: 2024/12/30 20:12:21 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = Moar brainz!
+TARGET = moar_brainz
 
 all: $(TARGET)
 

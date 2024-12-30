@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/12/30 20:05:14 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:06:52 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 private:
 	
 	std::string name;
-	int	n;
 
 };
 

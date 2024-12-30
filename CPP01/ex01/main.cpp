@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/12/30 20:05:56 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:09:05 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main() {
         for (int i = 0; i < hordeSize; ++i) {
             horde[i].announce();
         }
-        delete[] horde; // Deallocate the horde
+		
+        delete[] horde;
     } else {
         std::cout << "Invalid horde size!" << std::endl;
     }
