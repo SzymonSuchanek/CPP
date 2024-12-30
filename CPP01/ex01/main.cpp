@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/12/30 20:04:58 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/12/30 20:05:56 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ZOMBIE_HPP_
-# define _ZOMBIE_HPP_
+#include "Zombie.hpp"
 
-# include <iostream>
+int main() {
+    int hordeSize = 5;
+    std::string name = "Zombie_Horde_Member";
 
-class Zombie {
+    Zombie* horde = zombieHorde(hordeSize, name);
 
-public:
+    if (horde) {
+        for (int i = 0; i < hordeSize; ++i) {
+            horde[i].announce();
+        }
+        delete[] horde; // Deallocate the horde
+    } else {
+        std::cout << "Invalid horde size!" << std::endl;
+    }
 
-	Zombie(std::string name);
-	~Zombie(void);
-	
-	void announce(void);
-
-private:
-	
-	std::string name;
-
-};
-
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-
-#endif
+    return 0;
+}
