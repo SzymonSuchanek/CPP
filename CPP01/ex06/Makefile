@@ -6,7 +6,7 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/01/04 17:15:48 by ssuchane         ###   ########.fr        #
+#    Updated: 2025/01/04 17:18:37 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = harl
+TARGET = harlFilter
 
 all: $(TARGET)
 
