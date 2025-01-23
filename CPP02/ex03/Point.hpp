@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/22 14:11:12 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:43:18 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <cmath>
-# include "Fixed.cpp"
+# include "Fixed.hpp"
 
 class Point {
 

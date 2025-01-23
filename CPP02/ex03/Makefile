@@ -6,14 +6,14 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/01/22 12:35:21 by ssuchane         ###   ########.fr        #
+#    Updated: 2025/01/23 16:02:38 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 TARGET = a.out

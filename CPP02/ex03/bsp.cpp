@@ -6,11 +6,11 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/23 12:53:00 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:46:52 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.cpp"
+#include "Point.hpp"
 
 static Fixed sign(Point const p1, Point const p2, Point const p3) {
     return (p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY());
@@ -39,4 +39,21 @@ static bool isPointOnEdge(Point const p1, Point const p2, Point const point) {
         return false;
 		
     return true;
+}
+
+bool bsp(Point const a, Point const b, Point const c, Point const point) {
+    if (isPointOnEdge(a, b, point) || isPointOnEdge(b, c, point) || isPointOnEdge(c, a, point)) 
+        return false;
+
+    Fixed d1, d2, d3;
+    bool has_neg, has_pos;
+
+    d1 = sign(point, a, b);
+    d2 = sign(point, b, c);
+    d3 = sign(point, c, a);
+
+    has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+    has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+
+    return !(has_neg && has_pos);
 }
