@@ -5,30 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 16:41:48 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/02 18:23:23 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/22 14:16:44 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Point.hpp"
 
-int main() {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
+bool bsp(Point const a, Point const b, Point const c, Point const point);
+
+int main(void){
+    std::cout << std::boolalpha;
+
+    Point a(0, 0);
+    Point b(0, 5);
+    Point c(5, 0);
+
+    std::cout << bsp(a, b, c, Point(1, 1)) << std::endl;
+    std::cout << bsp(a, b, c, Point(1, 2)) << std::endl;
+
+    return 0;
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 16:41:48 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/02 18:25:40 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/22 14:13:55 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "Point.hpp"
 
-HumanB::HumanB(std::string name) 
-	: name(name), weapon(NULL) {}
+Point::Point() : x(0), y(0) {}
 
-HumanB::~HumanB() {}
+Point::Point(const float xValue, const float yValue) : x(xValue), y(yValue) {}
 
-void HumanB::attack() {
-	if (weapon)
-		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-	else
-		std::cout << name << " has no weapon to attack with" << std::endl; 
+Point::Point(const Point &other) : x(other.x), y(other.y) {}
+
+Point::~Point() {}
+
+Point &Point::operator=(const Point &other) {
+    if (this != &other) {}
+    return *this;
 }
 
-void HumanB::setWeapon(Weapon &weapon) {
-	this->weapon = &weapon;
+Fixed Point::getX() const {
+    return x;
+}
+
+Fixed Point::getY() const {
+    return y;
 }
