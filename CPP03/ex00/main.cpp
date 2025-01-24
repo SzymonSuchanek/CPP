@@ -6,13 +6,13 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/24 11:12:14 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:32:13 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main( void ) {
+int main() {
 	ClapTrap hero("Bob");
 	
     hero.attack("Monster");

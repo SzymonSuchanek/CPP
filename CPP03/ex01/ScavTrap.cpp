@@ -36,13 +36,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 }
 
 ScavTrap::~ScavTrap() {
-
+	std::cout << "ScavTrap " << name << " destroyed!" << std::endl;
 }
 
-void attack(const std::string &target) {
-
+void ScavTrap::attack(const std::string &target) {
+	if (hitPoints == 0)
+		std::cout << "ScavTrap " << name << " is dead!" << std::endl;
+	else if (energyPoints == 0)
+		std::cout << "ScavTrap " << name << " does not have enough energy to attack!" << std::endl;
+	else {
+		std::cout << "ScavTrap " << name << " attacks " << target << " causing " << attackDamage << " damage!" << std::endl;	
+		energyPoints--;
+	}
 }
 
-void guardGate() {
-
+void ScavTrap::guardGate() {
+	std::cout << "ScavTrap " << name << " is now in Gate keeper mode!" << std::endl;
 }

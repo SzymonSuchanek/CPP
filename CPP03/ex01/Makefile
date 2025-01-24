@@ -6,17 +6,17 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/01/24 09:52:53 by ssuchane         ###   ########.fr        #
+#    Updated: 2025/01/24 17:36:58 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = claptrap
+TARGET = scavrap
 
 all: $(TARGET)
 
