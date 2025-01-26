@@ -6,24 +6,42 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/25 14:42:17 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:16:06 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main() {
-	FragTrap hero("Rob");
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
 
-    hero.attack("Monster");
-    hero.takeDamage(33);
-    hero.beRepaired(35);
-    
-    hero.attack("Boss");
-    hero.takeDamage(500);
-    hero.beRepaired(10);
+	delete meta;
+	delete j;
+	delete i;
 
-    hero.highFivesGuys();
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongI = new WrongCat();
 
-    return 0;
+    std::cout << wrongI->getType() << " " << std::endl;
+    wrongI->makeSound();
+	wrongMeta->makeSound();
+
+    delete wrongMeta;
+    delete wrongI;
+
+
+	return 0;
 }

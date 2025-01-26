@@ -1,29 +1,34 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/25 14:42:17 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main() {
-	FragTrap hero("Rob");
+# include "WrongAnimal.hpp"
 
-    hero.attack("Monster");
-    hero.takeDamage(33);
-    hero.beRepaired(35);
-    
-    hero.attack("Boss");
-    hero.takeDamage(500);
-    hero.beRepaired(10);
+class WrongCat : public WrongAnimal {
+	
+public:
 
-    hero.highFivesGuys();
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	WrongCat &operator=(const WrongCat &other);
+	virtual ~WrongCat();
 
-    return 0;
-}
+	virtual std::string getType() const;
+	void setType() const;
+	void makeSound() const;
+
+};
+
+#endif

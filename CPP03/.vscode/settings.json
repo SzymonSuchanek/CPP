@@ -38,6 +38,14 @@
 		"optional": "cpp",
 		"ranges": "cpp",
 		"span": "cpp",
-		"tuple": "cpp"
+		"tuple": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"array": "cpp",
+		"bit": "cpp",
+		"memory": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"utility": "cpp"
 	}
 }

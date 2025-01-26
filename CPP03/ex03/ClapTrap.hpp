@@ -1,29 +1,42 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/25 14:42:17 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-int main() {
-	FragTrap hero("Rob");
+# include <iostream>
+# include <string>
 
-    hero.attack("Monster");
-    hero.takeDamage(33);
-    hero.beRepaired(35);
-    
-    hero.attack("Boss");
-    hero.takeDamage(500);
-    hero.beRepaired(10);
+class ClapTrap {
+	
+protected:
 
-    hero.highFivesGuys();
+	std::string name;
+	int hitPoints;
+	int energyPoints;
+	int attackDamage;
 
-    return 0;
-}
+public:
+
+	ClapTrap(const std::string &name);
+	ClapTrap(const ClapTrap &other);
+	ClapTrap &operator=(const ClapTrap &other);
+	~ClapTrap();
+
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+		
+};
+
+#endif
