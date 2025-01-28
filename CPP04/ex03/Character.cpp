@@ -6,15 +6,22 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:10:57 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:07:43 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() {
+Character::Character()
+	: _name(""){
 	for (int i = 0; i < 4; ++i)
 		inventory[i] = NULL;
+}
+
+Character::Character(const std::string &name)
+	: _name(name) {
+    for (int i = 0; i < 4; ++i) 
+        inventory[i] = NULL;
 }
 
 Character::Character(const Character &other) 

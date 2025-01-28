@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 12:05:52 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:54:39 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-
 # include "AMateria.hpp"
 
 class Ice : public AMateria {

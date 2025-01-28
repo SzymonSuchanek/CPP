@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:03:00 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:14:09 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ MateriaSource::MateriaSource() {
 void MateriaSource::learnMateria(AMateria* m) {
 	for (int i = 0; i < 4; ++i) {
 		if (!templates[i]) {
-			templates[i] = m->clone();
+			templates[i] = m;
 			break;
 		}
 	}

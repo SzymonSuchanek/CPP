@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:24:18 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:08:26 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <iostream>
 # include <string>
 # include "ICharacter.hpp"
-
-class AMateria;
+# include "AMateria.hpp"
 
 class Character : public ICharacter {
 
@@ -29,7 +28,7 @@ private:
 public:
 
 	Character();
-	Character(std::string name) : _name(name) {}
+	Character(const std::string &name);
 	Character(const Character &other);
 	Character &operator=(const Character &other);
 	virtual ~Character();

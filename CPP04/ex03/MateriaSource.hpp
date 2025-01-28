@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:38:23 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:57:46 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+
+#include "IMateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 class MateriaSource : public IMateriaSource {
 
@@ -26,7 +30,6 @@ public:
 
 	MateriaSource();
 	MateriaSource(const MateriaSource &other);
-	MateriaSource(std::string const & type);
 	MateriaSource &operator=(const MateriaSource &other);
 	virtual ~MateriaSource();
 
