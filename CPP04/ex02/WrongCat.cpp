@@ -11,29 +11,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#include "WrongCat.hpp"
 
-# include "ClapTrap.hpp"
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+WrongCat::WrongCat() {
+	type = "WrongCat";
+    std::cout << "Constructor called: WrongCat" << std::endl;
+}
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+WrongCat::WrongCat(const WrongCat& other)
+	: WrongAnimal(other) {
+	std::cout << "Copy created: WrongCat" << std::endl;
+}
 
-private:
+WrongCat::~WrongCat() {
+    std::cout << "Object destroyed: WrongCat" << std::endl;
+}
 
-	std::string name;
-		
-public:
+WrongCat &WrongCat::operator=(const WrongCat &other) {
+    std::cout << "Copy assignment operator called: WrongCat" << std::endl;
+    if (this != &other) {
+		WrongAnimal::operator=(other);
+	}
+    std::cout << "Assignment: WrongCat!" << std::endl;
+    return *this;
+}
 
-	DiamondTrap(const std::string &name);
-	DiamondTrap(const DiamondTrap &other);
-	DiamondTrap &operator=(const DiamondTrap &other);
-	~DiamondTrap();
+std::string WrongCat::getType() const {
+	return type;
+}
 
-	using ScavTrap::attack;
-	void whoAmI();
-
-};
-
-#endif
+void WrongCat::makeSound() const {
+	std::cout << "WrongMeow!" << std::endl;
+}

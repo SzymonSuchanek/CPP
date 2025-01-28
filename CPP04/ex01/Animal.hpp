@@ -1,36 +1,38 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:38:06 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-int main() {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
-	return 0;
-}
+# include <iostream>
+# include <string>
+
+class Animal {
+	
+protected:
+
+	std::string type;
+
+public:
+
+	Animal();
+	Animal(const Animal &other);
+	Animal &operator=(const Animal &other);
+	virtual ~Animal();
+
+	virtual std::string getType() const;
+	virtual void makeSound() const;
+		
+};
+
+#endif

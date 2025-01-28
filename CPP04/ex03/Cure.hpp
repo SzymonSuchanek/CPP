@@ -1,32 +1,35 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
+/*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/28 12:05:59 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "ClapTrap.hpp"
+# include <iostream>
+# include <string>
 
-class FragTrap : public ClapTrap {
+# include "AMateria.hpp"
+
+class Cure : public AMateria {
 
 public:
 
-	FragTrap(const std::string &name);
-	FragTrap(const FragTrap &other);
-	FragTrap &operator=(const FragTrap &other);
-	~FragTrap();
+	Cure() : AMateria("cure") {}
+	Cure(const Cure &other) : AMateria(other) {}
+	Cure &operator=(const Cure &other);
+	virtual ~Cure() {}
 
-	void attack(const std::string &target);
-	void highFivesGuys();
+	std::string const & getType() const { return type; }
+	AMateria* clone() const { return new Cure(*this); }
+	void use(ICharacter& target);
 
 };
 

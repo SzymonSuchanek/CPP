@@ -11,24 +11,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Cat.hpp"
 
-# include "ClapTrap.hpp"
-# include "FragTrap.hpp
+Cat::Cat() {
+	type = "Cat";
+    std::cout << "Constructor called: Cat" << std::endl;
+	brain = new Brain();
+}
 
-class ScavTrap : public ClapTrap {
+Cat::Cat(const Cat& other)
+	: Animal(other), brain(new Brain(*other.brain)) {
+	std::cout << "Copy created: Cat" << std::endl;
+}
 
-public:
+Cat::~Cat() {
+	delete brain;
+    std::cout << "Object destroyed: Cat" << std::endl;
+}
 
-	ScavTrap(const std::string &name);
-	ScavTrap(const ScavTrap &other);
-	ScavTrap &operator=(const ScavTrap &other);
-	~ScavTrap();
+Cat &Cat::operator=(const Cat &other) {
+    std::cout << "Copy assignment operator called: Cat" << std::endl;
+    if (this != &other) {
+		Animal::operator=(other);
+		delete brain;
+		brain = new Brain(*other.brain);
+	}
+    std::cout << "Assignment: Cat!" << std::endl;
+    return *this;
+}
 
-	void attack(const std::string &target);
-	void guardGate();
-		
-};
+std::string Cat::getType() const {
+	return type;
+}
 
-#endif
+void Cat::makeSound() const {
+	std::cout << "Meow!" << std::endl;
+}

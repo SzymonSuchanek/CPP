@@ -11,29 +11,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#include "Brain.hpp"
 
-# include "ClapTrap.hpp"
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+Brain::Brain() {
+	std::cout << "Constructor called: Brain" << std::endl;
+	for (int i = 0; i < 100; ++i) {
+		ideas[i] = "";
+	}
+}
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+Brain::Brain(const Brain& other) {
+	std::cout << "Copy constructor called: Brain" << std::endl;
+	for (int i = 0; i < 100; ++i) {
+		ideas[i] = other.ideas[i];
+	}
+}
 
-private:
+Brain::~Brain() {
+    std::cout << "Object destroyed: Brain" << std::endl;
+}
 
-	std::string name;
-		
-public:
-
-	DiamondTrap(const std::string &name);
-	DiamondTrap(const DiamondTrap &other);
-	DiamondTrap &operator=(const DiamondTrap &other);
-	~DiamondTrap();
-
-	using ScavTrap::attack;
-	void whoAmI();
-
-};
-
-#endif
+Brain &Brain::operator=(const Brain &other) {
+	std::cout << "Copy assignment operator called: Brain" << std::endl;
+	if (this != &other) {
+		for (int i = 0; i < 100; ++i) {
+			ideas[i] = other.ideas[i];
+		}
+	}
+	return *this;
+}

@@ -14,7 +14,7 @@
 # include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(const std::string &name)
-	: ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name) {
+	: ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), name(name) {
 	ClapTrap::hitPoints = FragTrap::hitPoints;
 	ClapTrap::energyPoints = ScavTrap::energyPoints;
 	ClapTrap::attackDamage = FragTrap::attackDamage;
@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap(const std::string &name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) 
-	: ClapTrap(other), FragTrap(other), ScavTrap(other), _name(other.name) {
+	: ClapTrap(other), FragTrap(other), ScavTrap(other), name(other.name) {
 	*this = other;
 	std::cout << "DiamondTrap " << name << " copied!" << std::endl;
 }
@@ -32,7 +32,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
         ClapTrap::operator=(other);
 		FragTrap::operator=(other);
 		ScavTrap::operator=(other);
-		_name = other.name;
+		name = other.name;
 	}
     std::cout << "DiamondTrap " << name << " assigned!" << std::endl;
     return *this;

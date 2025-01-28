@@ -11,29 +11,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#include "Cat.hpp"
 
-# include "ClapTrap.hpp"
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+Cat::Cat() {
+	type = "Cat";
+    std::cout << "Constructor called: Cat" << std::endl;
+	brain = new Brain();
+}
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+Cat::Cat(const Cat& other)
+	: Animal(other), brain(new Brain(*other.brain)) {
+	std::cout << "Copy created: Cat" << std::endl;
+}
 
-private:
+Cat::~Cat() {
+	delete brain;
+    std::cout << "Object destroyed: Cat" << std::endl;
+}
 
-	std::string _name;
-		
-public:
+Cat &Cat::operator=(const Cat &other) {
+    std::cout << "Copy assignment operator called: Cat" << std::endl;
+    if (this != &other) {
+		Animal::operator=(other);
+		delete brain;
+		brain = new Brain(*other.brain);
+	}
+    std::cout << "Assignment: Cat!" << std::endl;
+    return *this;
+}
 
-	DiamondTrap(const std::string &name);
-	DiamondTrap(const DiamondTrap &other);
-	DiamondTrap &operator=(const DiamondTrap &other);
-	~DiamondTrap();
+std::string Cat::getType() const {
+	return type;
+}
 
-	using ScavTrap::attack;
-	void whoAmI();
-
-};
-
-#endif
+void Cat::makeSound() const {
+	std::cout << "Meow!" << std::endl;
+}

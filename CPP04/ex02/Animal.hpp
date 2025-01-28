@@ -11,22 +11,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "ClapTrap.hpp"
+# include <iostream>
+# include <string>
 
-class ScavTrap : public ClapTrap {
+class Animal {
+	
+protected:
+
+	std::string type;
 
 public:
 
-	ScavTrap(const std::string &name);
-	ScavTrap(const ScavTrap &other);
-	ScavTrap &operator=(const ScavTrap &other);
-	~ScavTrap();
+	Animal();
+	Animal(const Animal &other);
+	Animal &operator=(const Animal &other);
+	virtual ~Animal();
 
-	void attack(const std::string &target);
-	void guardGate();
+	virtual std::string getType() const;
+	virtual void makeSound() const = 0;
 		
 };
 

@@ -11,31 +11,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class ClapTrap {
+class Dog : public Animal {
 	
-protected:
+private:
 
-	std::string name;
-	int hitPoints;
-	int energyPoints;
-	int attackDamage;
+	Brain* brain;
 
 public:
 
-	ClapTrap(const std::string &name);
-	ClapTrap(const ClapTrap &other);
-	ClapTrap &operator=(const ClapTrap &other);
-	~ClapTrap();
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	virtual ~Dog();
 
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	virtual std::string getType() const;
+	void makeSound() const;
 		
 };
 

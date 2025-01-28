@@ -6,17 +6,17 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/01/25 14:38:18 by ssuchane         ###   ########.fr        #
+#    Updated: 2025/01/28 11:05:40 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp Animal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = fragtrap
+TARGET = abstraction
 
 all: $(TARGET)
 

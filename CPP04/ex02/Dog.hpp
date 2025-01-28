@@ -11,23 +11,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include "ClapTrap.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class FragTrap : virtual public ClapTrap {
+class Dog : public Animal {
+	
+private:
+
+	Brain* brain;
 
 public:
 
-	FragTrap(const std::string &name);
-	FragTrap(const FragTrap &other);
-	FragTrap &operator=(const FragTrap &other);
-	~FragTrap();
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	virtual ~Dog();
 
-	void attack(const std::string &target);
-	void highFivesGuys();
-
+	virtual std::string getType() const;
+	void makeSound() const;
+		
 };
 
 #endif
