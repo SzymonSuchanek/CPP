@@ -1,40 +1,38 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/07 12:15:20 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-# include "ICharacter.hpp"
-
-class AMateria {
-
+class Cat : public Animal {
+	
 protected:
 
-	std::string type;
+	Brain* brain;
 
 public:
 
-	AMateria();
-	AMateria(const AMateria &other);
-	AMateria(std::string const & type);
-	AMateria &operator=(const AMateria &other);
-	virtual ~AMateria();
+	Cat();
+	Cat(const Cat &other);
+	Cat &operator=(const Cat &other);
+	virtual ~Cat();
 
-	std::string const & getType() const;
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target) = 0;
+	virtual std::string getType() const;
+	void setType() const;
+	void makeSound() const;
 
 };
 

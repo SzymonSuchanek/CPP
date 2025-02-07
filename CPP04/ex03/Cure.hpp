@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 12:05:59 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:23:03 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Cure : public AMateria {
 
 public:
 
-	Cure() : AMateria("cure") {}
-	Cure(const Cure &other) : AMateria(other) {}
+	Cure();
+	Cure(const Cure &other);
 	Cure &operator=(const Cure &other);
-	virtual ~Cure() {}
+	virtual ~Cure();
 
-	std::string const & getType() const { return type; }
-	AMateria* clone() const { return new Cure(*this); }
+	std::string const & getType() const;
+	AMateria* clone() const;
 	void use(ICharacter& target);
 
 };

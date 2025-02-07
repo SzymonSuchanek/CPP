@@ -1,29 +1,38 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/07 12:15:11 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-AMateria::AMateria() : type("") {}
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-AMateria::AMateria(const AMateria &other) : type(other.type) {}
+class Dog : public Animal {
+	
+private:
 
-AMateria::AMateria(std::string const & type) : type(type) {}
+	Brain* brain;
 
-AMateria& AMateria::operator=(const AMateria& other) {
-	if (this != &other)
-		type = other.type;
-	return *this;
-}
+public:
 
-AMateria::~AMateria() {}
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	virtual ~Dog();
 
-std::string const &AMateria::getType() const { return type; }
+	virtual std::string getType() const;
+	void makeSound() const;
+		
+};
+
+#endif

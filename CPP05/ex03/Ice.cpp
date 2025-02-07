@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/07 12:15:20 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:05:02 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#include "Ice.hpp"
 
-# include <iostream>
-# include <string>
+Ice &Ice::operator=(const Ice &other) {
+	if (this != &other) {
+		AMateria::operator=(other);
+	}
+	return *this;
+}
 
-# include "ICharacter.hpp"
-
-class AMateria {
-
-protected:
-
-	std::string type;
-
-public:
-
-	AMateria();
-	AMateria(const AMateria &other);
-	AMateria(std::string const & type);
-	AMateria &operator=(const AMateria &other);
-	virtual ~AMateria();
-
-	std::string const & getType() const;
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target) = 0;
-
-};
-
-#endif
+void Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

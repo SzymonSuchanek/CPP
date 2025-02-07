@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 13:54:39 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:19:34 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Ice : public AMateria {
 
 public:
 
-	Ice() : AMateria("ice") {}
-	Ice(const Ice &other) : AMateria(other) {}
+	Ice();
+	Ice(const Ice &other);
 	Ice &operator=(const Ice &other);
-	virtual ~Ice() {}
+	virtual ~Ice();
 
-	std::string const & getType() const { return type; }
-	AMateria* clone() const { return new Ice(*this); }
+	std::string const & getType() const;
+	AMateria* clone() const;
 	void use(ICharacter& target);
 
 };

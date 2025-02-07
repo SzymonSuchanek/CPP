@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/07 12:15:20 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:18:53 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#include "AMateria.hpp"
 
-# include <iostream>
-# include <string>
-
-# include "ICharacter.hpp"
-
-class AMateria {
-
-protected:
-
-	std::string type;
-
-public:
-
-	AMateria();
-	AMateria(const AMateria &other);
-	AMateria(std::string const & type);
-	AMateria &operator=(const AMateria &other);
-	virtual ~AMateria();
-
-	std::string const & getType() const;
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target) = 0;
-
-};
-
-#endif
+AMateria& AMateria::operator=(const AMateria& other) {
+	if (this != &other)
+		type = other.type;
+	return *this;
+}

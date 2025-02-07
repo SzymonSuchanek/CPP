@@ -1,29 +1,34 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/07 12:15:11 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
+/*   Updated: 2025/01/22 12:41:17 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-AMateria::AMateria() : type("") {}
+# include "WrongAnimal.hpp"
 
-AMateria::AMateria(const AMateria &other) : type(other.type) {}
+class WrongCat : public WrongAnimal {
+	
+public:
 
-AMateria::AMateria(std::string const & type) : type(type) {}
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	WrongCat &operator=(const WrongCat &other);
+	virtual ~WrongCat();
 
-AMateria& AMateria::operator=(const AMateria& other) {
-	if (this != &other)
-		type = other.type;
-	return *this;
-}
+	virtual std::string getType() const;
+	void setType() const;
+	void makeSound() const;
 
-AMateria::~AMateria() {}
+};
 
-std::string const &AMateria::getType() const { return type; }
+#endif
