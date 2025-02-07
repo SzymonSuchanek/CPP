@@ -11,28 +11,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
+# include <exception>
+# include <stdbool.h>
 
-class Dog : public Animal {
+class Bureaucrat;
+
+class Form {
 	
 private:
 
-	Brain* brain;
+	const std::string _name;
+	bool _isSigned;
+	const int _gradeToSign;
+	const int _gradeToExec;
 
 public:
 
-	Dog();
-	Dog(const Dog &other);
-	Dog &operator=(const Dog &other);
-	virtual ~Dog();
+	Form();
+	Form(std::string name, bool isSigned, int gradeToSign, int gradeToExec);
+	Form(const Form &other);
+	Form &operator=(const Form &other);
+	virtual ~Form();
 
-	virtual std::string getType() const;
-	void makeSound() const;
-		
+	std::string getName() const;
+	bool getStatus() const;
+	int getGradeToSign() const;
+	int getGradeToExec() const;
+	void beSigned(const Bureaucrat &b);
+
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char	*what( void ) const throw();
+	};
+	
+	class GradeTooLowException : public	std::exception
+	{
+		public:
+			const char	*what( void ) const throw();
+	};
+
 };
+
+std::ostream &operator<<(std::ostream &out, const Form &form);
 
 #endif

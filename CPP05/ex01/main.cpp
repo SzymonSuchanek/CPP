@@ -6,48 +6,57 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 11:04:32 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:30:54 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main() {
-	std::cout << "==== Mandatory tests ====" << std::endl;
+int	main( void )
+{
+	std::cout << "-------------------Test one-------------------" << std::endl;
+	Bureaucrat a;
+	Form FormA("A5", 0, 75, 75);
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "Bureaucrat: a will attempt to sign the form: " << FormA.getName() << std::endl;
+	std::cout << "And the result was: " << FormA.getStatus() << std::endl << std::endl;
+	a.signForm(FormA);
 
-	delete j;
-	delete i;
+	std::cout << "-------------------Test two-------------------" << std::endl;
+	Bureaucrat b("John", 150);
+	Form FormB("C1", 0, 75, 75);
 	
-    const int arraySize = 6;
-    const Animal* animals[arraySize];
-	
-	std::cout << "\n==== Additional tests ====" << std::endl;
-    for (int i = 0; i < arraySize / 2; ++i) {
-        animals[i] = new Dog();
-    }
-    for (int i = arraySize / 2; i < arraySize; ++i) {
-        animals[i] = new Cat();
-    }
+	std::cout << "Bureaucrat: " << b.getName() << " will attempt to sign the form: " << FormA.getName() << std::endl;
+	std::cout << "And the result was:" << std::endl;
+	b.signForm(FormB);
 
-    std::cout << "\nAnimals making sounds:" << std::endl;
-    for (int i = 0; i < arraySize; ++i) {
-        animals[i]->makeSound();
-    }
-	std::cout << std::endl;
-	
-    for (int i = 0; i < arraySize; ++i) {
-        delete animals[i];
-    }
+	// try	{
+	// 	Form tooHigh("TooHigh", 0, 0, 10);
+	// }
+	// catch (const std::exception& e) {
+	// 	std::cerr << e.what() << '\n' << std::endl;
+	// }
 
-    std::cout << "\nAll animals deleted, program exiting." << std::endl;
+	// try	{
+	// 	Form tooHigh("TooHigh", 0, 10, 0);
+	// }
+	// catch (const std::exception& e) {
+	// 	std::cerr << e.what() << '\n' << std::endl;
+	// }
 
-    return 0;
+	// try	{
+	// 	Form tooLow("TooLow", 0, 151, 140);
+	// }
+	// catch (const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n' << std::endl;
+	// }
+
+	// try	{
+	// 	Form tooLow("TooLow", 0, 130, 151);
+	// }
+	// catch (const std::exception& e)	{
+	// 	std::cerr << e.what() << '\n';
+	// }
 }
