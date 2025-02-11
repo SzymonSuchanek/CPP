@@ -23,7 +23,7 @@ const char *Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
 Bureaucrat::Bureaucrat(std::string name) : _name(name) {}
 
-Bureaucrat::Bureaucrat() : _name(""), _grade(1) {}
+Bureaucrat::Bureaucrat() : _name("PLACE_FOR_NAME"), _grade(1) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) 
 	: _name(name) {
@@ -63,10 +63,14 @@ void Bureaucrat::downGrade() {
 }
 
 void Bureaucrat::signForm(Form &form) const {
-    if (form.getStatus() < this->_grade)
-        std::cout << this->_name << " cannot sign " << form.getName() << ":grade too low" << std::endl;
-	else
-        std::cout << this->_name << " signs " << form.getName() << std::endl;
+	if (form.getStatus())
+		std::cout << "The form has already been signed." << std::endl;
+	else {
+		if (form.getGradeToSign() < this->_grade)
+			std::cout << this->_name << " cannot sign " << form.getName() << ":grade too low" << std::endl;
+		else
+        	std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
