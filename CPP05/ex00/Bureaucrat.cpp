@@ -13,11 +13,11 @@
 
 #include "Bureaucrat.hpp"
 
-const char	*Bureaucrat::GradeTooHighException::what( void ) const throw() {
+const char	*Bureaucrat::GradeTooHighException::what(void) const throw() {
 	return "Exception: Grade too high!";
 }
 
-const char	*Bureaucrat::GradeTooLowException::what( void ) const throw() {
+const char	*Bureaucrat::GradeTooLowException::what(void) const throw() {
 	return "Exception: Grade too low!";
 }
 

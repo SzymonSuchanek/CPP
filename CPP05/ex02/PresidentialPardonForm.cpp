@@ -11,28 +11,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "PresidentialPardonForm.hpp"
 
-# include <iostream>
-# include <string>
+PresidentialPardonForm::PresidentialPardonForm() : AForm() {}
 
-class Animal {
-	
-protected:
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 0, 25, 5, target) {}
 
-	std::string type;
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other) {}
 
-public:
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
+	if (this != &other) {
+		AForm::operator=(other);
+	}
+	return *this;
+}
 
-	Animal();
-	Animal(const Animal &other);
-	Animal &operator=(const Animal &other);
-	virtual ~Animal();
-
-	virtual std::string getType() const;
-	virtual void makeSound() const = 0;
-		
-};
-
-#endif
+PresidentialPardonForm::~PresidentialPardonForm() {}

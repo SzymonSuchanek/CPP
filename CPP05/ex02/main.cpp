@@ -6,51 +6,45 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 11:05:02 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:27:33 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main() {
-	std::cout << "==== Mandatory tests ====" << std::endl;
+int	main()
+{
+	std::cout << "-------------------Test one-------------------" << std::endl;
+	Bureaucrat a;
+	AForm FormA("A5", 0, 75, 75, "");
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	delete j;
-	delete i;
-	
-    const int arraySize = 6;
-    const Animal* animals[arraySize];
-	
-	std::cout << "\n==== Additional tests ====" << std::endl;
-    for (int i = 0; i < arraySize / 2; ++i) {
-        animals[i] = new Dog();
-    }
-    for (int i = arraySize / 2; i < arraySize; ++i) {
-        animals[i] = new Cat();
-    }
-
-    std::cout << "\nAnimals making sounds:" << std::endl;
-    for (int i = 0; i < arraySize; ++i) {
-        animals[i]->makeSound();
-    }
+	std::cout << a.getName() << " attemps to sign the form " << FormA.getName() << std::endl;
+	a.signForm(FormA);
 	std::cout << std::endl;
 	
-    for (int i = 0; i < arraySize; ++i) {
-        delete animals[i];
-    }
+	std::cout << "-------------------Test two-------------------" << std::endl;
+	Bureaucrat b("John", 150);
+	AForm FormB("B1", 0, 75, 75, "");
+	
+	std::cout << b.getName() << " attemps to sign the form " << FormA.getName() << std::endl;
+	b.signForm(FormB);
+	std::cout << std::endl;
 
-    std::cout << "\nAll animals deleted, program exiting." << std::endl;
-
-	// This line should cause a compilation error
-    // const Animal* animal = new Animal();
-
-    return 0;
+	std::cout << "-------------------Test three-------------------" << std::endl;
+	Bureaucrat c;
+	Bureaucrat d("Bob", 100);
+	AForm FormC("C8", 0, 1, 1, "");
+	AForm FormD("D3", 0, 80, 80, "");
+	
+	try {
+		c.signForm(FormC);
+		d.signForm(FormD);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
+	
+	return 0;
 }

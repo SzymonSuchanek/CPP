@@ -11,39 +11,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-Dog::Dog() {
-	type = "Dog";
-    std::cout << "Constructor called: Dog" << std::endl;
-	brain = new Brain();
-}
+# include "AForm.hpp"
 
-Dog::Dog(const Dog& other)
-	: Animal(other), brain(new Brain(*other.brain)) {
-	std::cout << "Copy created: Dog" << std::endl;
-}
+class RobotomyRequestForm {
+	
+private:
 
-Dog::~Dog() {
-	delete brain;
-    std::cout << "Object destroyed: Dog" << std::endl;
-}
+public:
 
-Dog &Dog::operator=(const Dog &other) {
-    std::cout << "Copy assignment operator called: Dog" << std::endl;
-    if (this != &other) {
-		Animal::operator=(other);
-		delete brain;
-		brain = new Brain(*other.brain);
-	}
-    std::cout << "Assignment: Dog!" << std::endl;
-    return *this;
-}
+	RobotomyRequestForm();
+	RobotomyRequestForm(const RobotomyRequestForm &other);
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+	virtual ~RobotomyRequestForm();
 
-std::string Dog::getType() const {
-	return type;
-}
+};
 
-void Dog::makeSound() const {
-	std::cout << "Woof!" << std::endl;
-}
+#endif

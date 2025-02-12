@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 14:08:26 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:53:42 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	Character &operator=(const Character &other);
 	virtual ~Character();
 
-	std::string const & getName() const { return _name; }
+	std::string const & getName() const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);

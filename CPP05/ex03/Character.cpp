@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:08:47 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/01/28 14:07:43 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:53:58 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ Character::~Character() {
 			delete inventory[i];
 	}
 }
+
+std::string const &Character::getName() const { return _name; }
 
 void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; ++i) {

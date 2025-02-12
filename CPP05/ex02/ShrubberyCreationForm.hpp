@@ -11,28 +11,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "AForm.hpp"
 
-class Dog : public Animal {
+class ShrubberyCreationForm {
 	
 private:
 
-	Brain* brain;
-
 public:
 
-	Dog();
-	Dog(const Dog &other);
-	Dog &operator=(const Dog &other);
-	virtual ~Dog();
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm &other);
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
+	virtual ~ShrubberyCreationForm();
 
-	virtual std::string getType() const;
-	void makeSound() const;
-		
 };
 
 #endif

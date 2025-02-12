@@ -62,7 +62,7 @@ void Bureaucrat::downGrade() {
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form &form) const {
+void Bureaucrat::signForm(AForm &form) const {
 	if (form.getStatus())
 		std::cout << "The form has already been signed." << std::endl;
 	else {

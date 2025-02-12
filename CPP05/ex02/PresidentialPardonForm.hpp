@@ -11,39 +11,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-Cat::Cat() {
-	type = "Cat";
-    std::cout << "Constructor called: Cat" << std::endl;
-	brain = new Brain();
-}
+# include "AForm.hpp"
 
-Cat::Cat(const Cat& other)
-	: Animal(other), brain(new Brain(*other.brain)) {
-	std::cout << "Copy created: Cat" << std::endl;
-}
+class PresidentialPardonForm : public AForm {
+	
+private:
 
-Cat::~Cat() {
-	delete brain;
-    std::cout << "Object destroyed: Cat" << std::endl;
-}
 
-Cat &Cat::operator=(const Cat &other) {
-    std::cout << "Copy assignment operator called: Cat" << std::endl;
-    if (this != &other) {
-		Animal::operator=(other);
-		delete brain;
-		brain = new Brain(*other.brain);
-	}
-    std::cout << "Assignment: Cat!" << std::endl;
-    return *this;
-}
+public:
 
-std::string Cat::getType() const {
-	return type;
-}
+	PresidentialPardonForm();
+	PresidentialPardonForm(std::string target);
+	PresidentialPardonForm(const PresidentialPardonForm &other);
+	PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+	virtual ~PresidentialPardonForm();
 
-void Cat::makeSound() const {
-	std::cout << "Meow!" << std::endl;
-}
+};
+
+#endif

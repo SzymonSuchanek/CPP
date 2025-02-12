@@ -11,32 +11,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-Brain::Brain() {
-	std::cout << "Constructor called: Brain" << std::endl;
-	for (int i = 0; i < 100; ++i) {
-		ideas[i] = "";
-	}
-}
+# include <iostream>
+# include <string>
+# include <exception>
 
-Brain::Brain(const Brain& other) {
-	std::cout << "Copy constructor called: Brain" << std::endl;
-	for (int i = 0; i < 100; ++i) {
-		ideas[i] = other.ideas[i];
-	}
-}
+# include "AForm.hpp"
 
-Brain::~Brain() {
-    std::cout << "Object destroyed: Brain" << std::endl;
-}
+class Bureaucrat {
+	
+private:
 
-Brain &Brain::operator=(const Brain &other) {
-	std::cout << "Copy assignment operator called: Brain" << std::endl;
-	if (this != &other) {
-		for (int i = 0; i < 100; ++i) {
-			ideas[i] = other.ideas[i];
-		}
-	}
-	return *this;
-}
+	const std::string _name;
+	int _grade;
+
+public:
+
+	Bureaucrat();
+	Bureaucrat(std::string name);
+	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat &operator=(const Bureaucrat &other);
+	virtual ~Bureaucrat();
+
+	std::string getName() const;
+	int getGrade() const;
+	void upGrade();
+	void downGrade();
+	void signForm(AForm &form) const;
+
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+	
+	class GradeTooLowException : public	std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+
+};
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
+
+#endif

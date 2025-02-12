@@ -11,25 +11,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+# include "RobotomyRequestForm.hpp"
 
-# include <iostream>
-# include <string>
-
-class Brain {
-	
-private:
-
-	std::string ideas[100];
-
-public:
-
-	Brain();
-	Brain(const Brain &other);
-	Brain &operator=(const Brain &other);
-	virtual ~Brain();
-		
-};
-
-#endif
+PresidentialPardonForm();
+PresidentialPardonForm(const PresidentialPardonForm &other);
+PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+virtual ~PresidentialPardonForm();
