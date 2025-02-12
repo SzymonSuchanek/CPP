@@ -29,12 +29,11 @@ protected:
 	bool _isSigned;
 	const int _gradeToSign;
 	const int _gradeToExec;
-	std::string _target;
 
 public:
 
 	AForm();
-	AForm(std::string name, bool isSigned, int gradeToSign, int gradeToExec, std::string target);
+	AForm(std::string name, bool isSigned, int gradeToSign, int gradeToExec);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
 	virtual ~AForm();
@@ -43,8 +42,8 @@ public:
 	virtual bool getStatus() const;
 	virtual int getGradeToSign() const;
 	virtual int getGradeToExec() const;
-	virtual std::string getTarget() const;
 	virtual void beSigned(const Bureaucrat &b);
+	void checkExec(const Bureaucrat &executor ) const;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -53,6 +52,18 @@ public:
 	};
 	
 	class GradeTooLowException : public	std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class FormNotSignedException : public std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class FileNotOpenException : public std::exception
 	{
 		public:
 			const char	*what(void) const throw();
