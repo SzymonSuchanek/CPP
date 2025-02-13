@@ -1,0 +1,28 @@
+{
+    "C++ Class with Header Guard": {
+        "prefix": "cppclass",
+        "body": [
+            "#ifndef ${1:CLASSNAME}_HPP",
+            "# define ${1:CLASSNAME}_HPP",
+            "",
+            "# include <iostream>",
+            "",
+            "class ${1:CLASSNAME} {",
+            "    ",
+            "private:",
+            "",
+            "",
+            "public:",
+            "",
+            "    ${1:CLASSNAME}();",
+            "    ${1:CLASSNAME}(const ${1:CLASSNAME} &other);",
+            "    ${1:CLASSNAME} &operator=(const ${1:CLASSNAME} &other);",
+            "    virtual ~$1();",
+            "",
+            "};",
+            "",
+            "#endif // ${1:CLASSNAME}_HPP"
+        ],
+        "description": "Generates a C++ class header file with a header guard."
+    }
+}

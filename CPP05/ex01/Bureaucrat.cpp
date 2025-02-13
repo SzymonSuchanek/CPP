@@ -63,14 +63,12 @@ void Bureaucrat::downGrade() {
 }
 
 void Bureaucrat::signForm(Form &form) const {
-	if (form.getStatus())
-		std::cout << "The form has already been signed." << std::endl;
-	else {
-		if (form.getGradeToSign() < this->_grade)
-			std::cout << this->_name << " cannot sign " << form.getName() << ":grade too low" << std::endl;
-		else
-        	std::cout << this->_name << " signs " << form.getName() << std::endl;
+	try	{
+		form.beSigned(*this);
 	}
+	catch(const std::exception& e) {
+		std::cout << e.what() << '\n';
+	}	
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {

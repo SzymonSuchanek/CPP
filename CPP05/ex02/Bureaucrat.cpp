@@ -63,29 +63,22 @@ void Bureaucrat::downGrade() {
 }
 
 void Bureaucrat::signForm(AForm &form) const {
-	if (form.getStatus())
-		std::cout << "The form has already been signed." << std::endl;
-	else {
-		if (form.getGradeToSign() < this->_grade)
-			std::cout << this->_name << " cannot sign " << form.getName() << ":grade too low" << std::endl;
-		else
-        	std::cout << this->_name << " signs " << form.getName() << std::endl;
+	try	{
+		form.beSigned(*this);
 	}
+	catch(const std::exception& e) {
+		std::cout << e.what() << '\n';
+	}	
 }
 
-int Bureaucrat::executeForm(AForm const & form) {
-	if (!form.getStatus()) {
-		std::cout << "Form " << form.getName() << " is not signed!" << std::endl;
-		return 1;
+void Bureaucrat::executeForm(AForm const & form) {
+	try {
+		form.execute(*this);
 	}
-	if (form.getGradeToExec() > getGrade()) {
-		std::cout << "Bureaucrat " << getName() << " has grade not high enough to execute the form!" << std::endl;
-		return 2;
+	catch (const std::exception &e) {
+		std::cout << e.what() << "\n";
 	}
-	std::cout << getName() << " executed " << form.getName() << "!" << std::endl;;
-	return 0;
 }
-
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 	out << "Bureaucrat: " << bureaucrat.getName() << std::endl;
