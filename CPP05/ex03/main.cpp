@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/13 15:43:01 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:55:32 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,19 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
-	AForm *shrubbery = new ShrubberyCreationForm("home");
-	Bureaucrat john("John", 1);
-	Bureaucrat andrew("Andrew", 140);
-
-	john.executeForm(*shrubbery);
-	std::cout << std::endl;
-	john.signForm(*shrubbery);
-	std::cout << *shrubbery << std::endl;
-	std::cout << john << std::endl;
-	john.executeForm(*shrubbery);
-	andrew.executeForm(*shrubbery);
-	delete shrubbery;
-
-	std::cout << std::endl;
-	std::cout << std::endl;
-
-	AForm *robotomy = new RobotomyRequestForm("Dude");
-	Bureaucrat vlad("Vlad", 1);
-
-	vlad.executeForm(*robotomy);
-	vlad.signForm(*robotomy);
-	vlad.executeForm(*robotomy);
-	vlad.executeForm(*robotomy);
-	vlad.executeForm(*robotomy);
-	vlad.executeForm(*robotomy);
-	delete robotomy;
-	
-	std::cout << std::endl;
-	std::cout << std::endl;
-
-	AForm *presidential = new PresidentialPardonForm("Corrector");
-	Bureaucrat eve("Eve", 6);
-
-	eve.executeForm(*presidential);
-	eve.signForm(*presidential);
-	eve.executeForm(*presidential);
-	eve.upGrade();
-	eve.executeForm(*presidential);
-	delete presidential;
+	std::cout << "Trying to create a Form that doesn't exist. Result:" << std::endl;
+	try {
+		Intern	someRandomIntern2;
+		AForm		*presidential;
+		presidential	= someRandomIntern2.makeForm("Something that doesn't work", "You");
+	}
+	catch(const std::exception& e) {
+		std::cout << e.what() << '\n';
+	}
 	
 	return 0;
 }

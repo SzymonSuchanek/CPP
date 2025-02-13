@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:25:10 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/13 16:43:15 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:56:48 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ AForm*	Intern::newRobotomy(std::string target) {
 
 AForm*	Intern::makeForm(std::string form, std::string target) {
 	std::string forms[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
-	AForm* (Intern::*p[3])(std::string) = {&Intern::newShrubbery, &newPresidential, &newRobotomy};
+	AForm* (Intern::*p[3])(std::string) = {&Intern::newShrubbery, &Intern::newPresidential, &Intern::newRobotomy};
 	int i = 0;
 
 	while (i < 4 && forms[i].compare(form) != 0)
