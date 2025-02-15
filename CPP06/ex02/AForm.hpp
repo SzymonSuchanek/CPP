@@ -11,8 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
@@ -21,7 +21,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	
 private:
 
@@ -32,30 +32,46 @@ private:
 
 public:
 
-	Form();
-	Form(std::string name, bool isSigned, int gradeToSign, int gradeToExec);
-	Form(const Form &other);
-	Form &operator=(const Form &other);
-	virtual ~Form();
+	AForm();
+	AForm(std::string name, bool isSigned, int gradeToSign, int gradeToExec);
+	AForm(const AForm &other);
+	AForm &operator=(const AForm &other);
+	virtual ~AForm();
 
-	std::string getName() const;
-	bool getStatus() const;
-	int getGradeToSign() const;
-	int getGradeToExec() const;
-	void beSigned(const Bureaucrat &b);
+	virtual std::string getName() const;
+	virtual bool getStatus() const;
+	virtual int getGradeToSign() const;
+	virtual int getGradeToExec() const;
+	virtual void beSigned(const Bureaucrat &b);
+	virtual void execute( Bureaucrat const &executor ) const = 0;
+	void checkExec(const Bureaucrat &executor ) const;
 
-	class GradeTooHighException : public std::exception	{
+	class GradeTooHighException : public std::exception
+	{
 		public:
 			const char	*what(void) const throw();
 	};
 	
-	class GradeTooLowException : public	std::exception {
+	class GradeTooLowException : public	std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class FormNotSignedException : public std::exception
+	{
+		public:
+			const char	*what(void) const throw();
+	};
+
+	class FileNotOpenException : public std::exception
+	{
 		public:
 			const char	*what(void) const throw();
 	};
 
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &form);
+std::ostream &operator<<(std::ostream &out, const AForm &form);
 
 #endif

@@ -62,13 +62,22 @@ void Bureaucrat::downGrade() {
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form &form) const {
+void Bureaucrat::signForm(AForm &form) const {
 	try	{
 		form.beSigned(*this);
 	}
-	catch (const std::exception& e) {
+	catch(const std::exception& e) {
 		std::cout << e.what() << '\n';
 	}	
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+	try {
+		form.execute(*this);
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << "\n";
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {

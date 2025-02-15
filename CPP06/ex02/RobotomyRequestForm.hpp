@@ -11,51 +11,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-# include <iostream>
-# include <string>
-# include <exception>
-# include <stdbool.h>
+# include <cstdlib>
 
-class Bureaucrat;
+# include "AForm.hpp"
 
-class Form {
+class RobotomyRequestForm : public AForm {
 	
 private:
 
-	const std::string _name;
-	bool _isSigned;
-	const int _gradeToSign;
-	const int _gradeToExec;
+	std::string _target;
 
 public:
 
-	Form();
-	Form(std::string name, bool isSigned, int gradeToSign, int gradeToExec);
-	Form(const Form &other);
-	Form &operator=(const Form &other);
-	virtual ~Form();
+	RobotomyRequestForm();
+	RobotomyRequestForm(std::string target);
+	RobotomyRequestForm(const RobotomyRequestForm &other);
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+	virtual ~RobotomyRequestForm();
 
-	std::string getName() const;
-	bool getStatus() const;
-	int getGradeToSign() const;
-	int getGradeToExec() const;
-	void beSigned(const Bureaucrat &b);
-
-	class GradeTooHighException : public std::exception	{
-		public:
-			const char	*what(void) const throw();
-	};
-	
-	class GradeTooLowException : public	std::exception {
-		public:
-			const char	*what(void) const throw();
-	};
+	void execute(Bureaucrat const & executor) const;
 
 };
-
-std::ostream &operator<<(std::ostream &out, const Form &form);
 
 #endif

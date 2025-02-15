@@ -38,14 +38,12 @@ public:
 	void upGrade();
 	void downGrade();
 
-	class GradeTooHighException : public std::exception
-	{
+	class GradeTooHighException : public std::exception	{
 		public:
 			const char	*what(void) const throw();
 	};
 	
-	class GradeTooLowException : public	std::exception
-	{
+	class GradeTooLowException : public	std::exception {
 		public:
 			const char	*what(void) const throw();
 	};

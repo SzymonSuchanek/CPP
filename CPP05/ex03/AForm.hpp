@@ -46,26 +46,22 @@ public:
 	virtual void execute( Bureaucrat const &executor ) const = 0;
 	void checkExec(const Bureaucrat &executor ) const;
 
-	class GradeTooHighException : public std::exception
-	{
+	class GradeTooHighException : public std::exception	{
 		public:
 			const char	*what(void) const throw();
 	};
 	
-	class GradeTooLowException : public	std::exception
-	{
+	class GradeTooLowException : public	std::exception {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class FormNotSignedException : public std::exception
-	{
+	class FormNotSignedException : public std::exception {
 		public:
 			const char	*what(void) const throw();
 	};
 
-	class FileNotOpenException : public std::exception
-	{
+	class FileNotOpenException : public std::exception {
 		public:
 			const char	*what(void) const throw();
 	};
