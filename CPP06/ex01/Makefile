@@ -1,35 +1,18 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/02/07 15:19:53 by ssuchane         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 OBJ = $(SRC:.cpp=.o)
+NAME = serializer
 
-TARGET = form
+all: $(NAME)
 
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $(TARGET)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
