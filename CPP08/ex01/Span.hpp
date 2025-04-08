@@ -4,6 +4,10 @@
 # include <iostream>
 # include <vector>
 # include <algorithm>
+# include <cstdlib>
+# include <climits>
+# include <cstdlib>
+# include <ctime>  
 
 class Span {
 	
@@ -33,6 +37,15 @@ public:
 	void addNumber(int value);
 	int shortestSpan() const;
 	int	longestSpan() const;
+
+	template <typename T>
+	void addNumbers(T begin, T end) {
+		size_t distance = std::distance(begin, end);
+		if (_container.size() + distance > _N)
+			throw ContainerFullException();
+		_container.insert(_container.end(), begin, end);
+	}
+
 };
 
 #endif

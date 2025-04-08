@@ -2,9 +2,7 @@
 
 Span::Span() : _N(0) {}
 
-Span::Span(unsigned int N) : _N(N) { 
-	_container.resize(N, 0);
-}
+Span::Span(unsigned int N) : _N(N) {}
 
 Span::Span(const Span &other) : _N(other._N), _container(other._container) {}
 
@@ -27,20 +25,37 @@ const char* Span::ContainerFullException::what() const throw() {
 }
 
 void Span::addNumber(int value) {
-	if (_container.size() == _container.capacity()) {
-		throw Span::ContainerFullException();
-	}
-
-	std::vector<int>::iterator it = std::find(_container.begin(), _container.end(), 0);
-	if (it != _container.end()) {
-        *it = value;
-	}
+    if (_container.size() >= _N) {
+        throw ContainerFullException();
+    }
+    _container.push_back(value);
 }
 
 int Span::shortestSpan() const {
+	if (this->_container.size() <= 1) {
+		throw Span::NoSpanException();
+	}
 
+	std::vector<int> sorted = this->_container;
+	std::sort(sorted.begin(), sorted.end());
+
+	int shortest = INT_MAX;
+	for (size_t  i = 1; i < sorted.size(); ++i) {
+		int diff = sorted[i] - sorted[i - 1];
+		if (diff < shortest)
+			shortest = diff;
+	}
+
+	return shortest;
 }
 
 int	Span::longestSpan() const {
+	if (this->_container.size() <= 1) {
+		throw Span::NoSpanException();
+	}
 
+	std::vector<int>::const_iterator minIt = std::min_element(_container.begin(), _container.end());
+    std::vector<int>::const_iterator maxIt = std::max_element(_container.begin(), _container.end());
+
+	return std::abs(*minIt - *maxIt);
 }
