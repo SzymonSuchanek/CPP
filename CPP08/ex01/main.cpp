@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/04/08 15:51:59 by ssuchane         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:32:27 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main() {
         Span sp(2);
         sp.addNumber(10);
         sp.addNumber(20);
-        sp.addNumber(30); // Should throw
+        sp.addNumber(30);
     } catch (std::exception &e) {
         std::cout << "Expected Exception: " << e.what() << std::endl;
     }
@@ -44,7 +44,7 @@ int main() {
     try {
         Span sp(1);
         sp.addNumber(42);
-        std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl; // Should throw
+        std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
     } catch (std::exception &e) {
         std::cout << "Expected Exception: " << e.what() << std::endl;
     }
