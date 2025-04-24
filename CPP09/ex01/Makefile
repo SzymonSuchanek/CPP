@@ -6,17 +6,17 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/04/24 16:29:59 by ssuchane         ###   ########.fr        #
+#    Updated: 2025/04/02 12:37:21 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = easyfind
+TARGET = span
 
 all: $(TARGET)
 
