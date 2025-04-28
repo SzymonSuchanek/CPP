@@ -46,7 +46,7 @@
 		"numbers": "cpp",
 		"ostream": "cpp",
 		"ranges": "cpp",
-		"span": "cpp",
+		"RPN": "cpp",
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
@@ -70,6 +70,7 @@
 		"variant": "cpp",
 		"semaphore": "cpp",
 		"__config": "cpp",
-		"__debug": "cpp"
+		"__debug": "cpp",
+		"span": "cpp"
 	}
 }

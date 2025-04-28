@@ -1,22 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/18 17:14:52 by ssuchane          #+#    #+#              #
-#    Updated: 2025/04/02 12:37:21 by ssuchane         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Span.cpp
+SRC = main.cpp RPN.cpp
 OBJ = $(SRC:.cpp=.o)
 
-TARGET = span
+TARGET = RPN
 
 all: $(TARGET)
 

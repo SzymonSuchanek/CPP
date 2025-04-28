@@ -1,12 +1,12 @@
-#include "Span.hpp"
+#include "RPN.hpp"
 
-Span::Span() : _N(0) {}
+RPN::RPN() : _N(0) {}
 
-Span::Span(unsigned int N) : _N(N) {}
+RPN::RPN(unsigned int N) : _N(N) {}
 
-Span::Span(const Span &other) : _N(other._N), _container(other._container) {}
+RPN::RPN(const RPN &other) : _N(other._N), _container(other._container) {}
 
-Span &Span::operator=(const Span &other) {
+RPN &RPN::operator=(const RPN &other) {
 	if (this != &other) {
 		_N = other._N;
 		_container = other._container;
@@ -14,26 +14,26 @@ Span &Span::operator=(const Span &other) {
 	return *this;
 }
 
-Span::~Span() {}
+RPN::~RPN() {}
 
-const char* Span::NoSpanException::what() const throw() {
-	return "Span cannot be found.";
+const char* RPN::NoRPNException::what() const throw() {
+	return "RPN cannot be found.";
 }
 
-const char* Span::ContainerFullException::what() const throw() {
+const char* RPN::ContainerFullException::what() const throw() {
 	return "Container cannot have any more elements.";
 }
 
-void Span::addNumber(int value) {
+void RPN::addNumber(int value) {
     if (_container.size() >= _N) {
         throw ContainerFullException();
     }
     _container.push_back(value);
 }
 
-int Span::shortestSpan() const {
+int RPN::shortestRPN() const {
 	if (this->_container.size() <= 1) {
-		throw Span::NoSpanException();
+		throw RPN::NoRPNException();
 	}
 
 	std::vector<int> sorted = this->_container;
@@ -49,9 +49,9 @@ int Span::shortestSpan() const {
 	return shortest;
 }
 
-int	Span::longestSpan() const {
+int	RPN::longestRPN() const {
 	if (this->_container.size() <= 1) {
-		throw Span::NoSpanException();
+		throw RPN::NoRPNException();
 	}
 
 	std::vector<int>::const_iterator minIt = std::min_element(_container.begin(), _container.end());

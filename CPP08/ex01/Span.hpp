@@ -1,5 +1,5 @@
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # include <iostream>
 # include <vector>
@@ -9,7 +9,7 @@
 # include <cstdlib>
 # include <ctime>  
 
-class Span {
+class RPN {
 	
 private:
 
@@ -18,13 +18,13 @@ private:
 
 public:
 
-	Span();
-	Span(unsigned int N);
-	Span(const Span &other);
-	Span &operator=(const Span &other);
-	virtual ~Span();
+	RPN();
+	RPN(unsigned int N);
+	RPN(const RPN &other);
+	RPN &operator=(const RPN &other);
+	virtual ~RPN();
 
-	class NoSpanException : public std::exception {
+	class NoRPNException : public std::exception {
 	public:
 		virtual const char* what() const throw();
 	};
@@ -35,8 +35,8 @@ public:
 		};
 
 	void addNumber(int value);
-	int shortestSpan() const;
-	int	longestSpan() const;
+	int shortestRPN() const;
+	int	longestRPN() const;
 
 	template <typename T>
 	void addNumbers(T begin, T end) {
