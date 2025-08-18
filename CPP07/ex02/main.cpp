@@ -1,40 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 19:11:55 by ssuchane          #+#    #+#             */
-/*   Updated: 2025/02/26 21:06:24 by ssuchane         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <iostream>
+#include "iter.hpp"
 
-#include "Array.hpp"
+void printInt(const int& n) {
+    std::cout << n << " ";
+}
+
+void toUpper(char &c) {
+    if (c >= 'a' && c <= 'z') {
+        c -= 32;
+    }
+}
 
 int main() {
-	int f[6] = {'a', 'b', 'c','a', 'b', 'c'};
-	
-	try {
-		Array<int> a(5);
-		Array<int> b;
-		for (unsigned int i = 0; i < a.size(); i++)
-			a[i] = f[i];
-		for (unsigned int i = 0; i < a.size(); i++)
-			std::cout << a[i] << std::endl;
-		std::cout << std::endl;
-		
-		b = a;
-		for (unsigned int i = 0; i < b.size(); i++)
-			std::cout << b[i] << std::endl;
-		std::cout << std::endl;
-		
-		Array<int> c(b);
-		for (unsigned int i = 0; i < c.size(); i++)
-			std::cout << c[i] << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	return 0;
+    int arr[] = {1, 2, 3, 4, 5};
+    size_t len = sizeof(arr) / sizeof(arr[0]);
+
+    std::cout << "Original array: ";
+    iter(arr, len, printInt);
+    std::cout << std::endl;
+
+    char str[] = "hello";
+    size_t strLen = sizeof(str) - 1;
+
+    iter(str, strLen, toUpper);
+    std::cout << "Modified string: " << str << std::endl;
+
+    return 0;
 }
