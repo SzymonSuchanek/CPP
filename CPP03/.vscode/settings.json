@@ -37,7 +37,7 @@
 		"iterator": "cpp",
 		"optional": "cpp",
 		"ranges": "cpp",
-		"RPN": "cpp",
+		"Span": "cpp",
 		"tuple": "cpp",
 		"cstdarg": "cpp",
 		"cstddef": "cpp",

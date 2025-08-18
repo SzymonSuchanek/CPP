@@ -1,46 +1,44 @@
-#include "RPN.hpp"
+#include "Span.hpp"
 
-RPN::RPN() : _N(0) {}
+Span::Span() : _size(0) {}
 
-RPN::RPN(unsigned int N) : _N(N) {}
+Span::Span(unsigned int size) : _size(size) {}
 
-RPN::RPN(const RPN &other) : _N(other._N), _container(other._container) {}
+Span::Span(const Span &other) : _size(other._size), _container(other._container) {}
 
-RPN &RPN::operator=(const RPN &other) {
+Span &Span::operator=(const Span &other) {
 	if (this != &other) {
-		_N = other._N;
+		_size = other._size;
 		_container = other._container;
 	}
 	return *this;
 }
 
-RPN::~RPN() {}
+Span::~Span() {}
 
-const char* RPN::NoRPNException::what() const throw() {
-	return "RPN cannot be found.";
-}
-
-const char* RPN::ContainerFullException::what() const throw() {
-	return "Container cannot have any more elements.";
-}
-
-void RPN::addNumber(int value) {
-    if (_container.size() >= _N) {
-        throw ContainerFullException();
+void Span::addNumber(int value) {
+    if (_container.size() >= _size) {
+        throw std::overflow_error("Container cannot have any more elements.");
     }
     _container.push_back(value);
 }
 
-int RPN::shortestRPN() const {
+void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	if (_container.size() > _size)
+		throw std::overflow_error("Container cannot have any more elements.");
+	_container.insert(_container.end(), begin, end);
+}
+
+int Span::shortestSpan() const {
 	if (this->_container.size() <= 1) {
-		throw RPN::NoRPNException();
+		throw std::logic_error("Not enough elements to find a span.");
 	}
 
 	std::vector<int> sorted = this->_container;
 	std::sort(sorted.begin(), sorted.end());
 
-	int shortest = INT_MAX;
-	for (size_t  i = 1; i < sorted.size(); ++i) {
+	int shortest = sorted[1] - sorted[0];
+	for (size_t  i = 1; i < sorted.size(); i++) {
 		int diff = sorted[i] - sorted[i - 1];
 		if (diff < shortest)
 			shortest = diff;
@@ -49,9 +47,9 @@ int RPN::shortestRPN() const {
 	return shortest;
 }
 
-int	RPN::longestRPN() const {
+int	Span::longestSpan() const {
 	if (this->_container.size() <= 1) {
-		throw RPN::NoRPNException();
+		throw std::logic_error("Not enough elements to find a span.");
 	}
 
 	std::vector<int>::const_iterator minIt = std::min_element(_container.begin(), _container.end());

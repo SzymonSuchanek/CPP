@@ -46,7 +46,7 @@
 		"numbers": "cpp",
 		"ostream": "cpp",
 		"ranges": "cpp",
-		"RPN": "cpp",
+		"Span": "cpp",
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",

@@ -1,5 +1,5 @@
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef Span_HPP
+# define Span_HPP
 
 # include <iostream>
 # include <stack>
@@ -7,7 +7,7 @@
 # include <string>
 # include <algorithm>
 
-class RPN {
+class Span {
 	
 private:
 
@@ -15,10 +15,10 @@ private:
 
 public:
 
-	RPN();
-	RPN(const RPN &other);
-	RPN &operator=(const RPN &other);
-	~RPN();
+	Span();
+	Span(const Span &other);
+	Span &operator=(const Span &other);
+	~Span();
 
 	void calculate(const std::string &expression);
 	
