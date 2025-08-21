@@ -5,8 +5,17 @@
 # include <vector>
 # include <deque>
 # include <string>
-# include <stdexcept>
 # include <algorithm>
+# include <iomanip>
+# include <ctime>
+
+template<typename T>
+void printContainer(const T &container)
+{
+    for (size_t i = 0; i < container.size(); i++)
+        std::cout << container[i] << " ";
+    std::cout << std::endl;
+}
 
 class PmergeMe {
 	
@@ -19,10 +28,10 @@ public:
 	
 	static void fordJohnsonSort(std::vector<int>& vec);
     static void fordJohnsonSort(std::deque<int>& deq);
-
-    static void printContainer(const std::vector<int>& vec);
-    static void printContainer(const std::deque<int>& deq);
-
 };
+
+long long getTimeMicroseconds();
+bool isPositiveInteger(const std::string& s);
+
 
 #endif

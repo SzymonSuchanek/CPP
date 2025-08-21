@@ -13,6 +13,21 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 
 PmergeMe::~PmergeMe() {}
 
+long long getTimeMicroseconds()
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return static_cast<double>(ts.tv_sec) * 1e6 +
+           static_cast<double>(ts.tv_nsec) / 1e3;
+}
+
+bool isPositiveInteger(const std::string& s) {
+    if (s.empty()) return false;
+    for (size_t i = 0; i < s.size(); ++i)
+        if (!std::isdigit(s[i]))
+            return false;
+    return true;
+}
 
 void PmergeMe::fordJohnsonSort(std::vector<int>& vec) {
     if (vec.size() <= 1)
@@ -68,24 +83,4 @@ void PmergeMe::fordJohnsonSort(std::deque<int>& deq) {
     }
 
     deq = mainChain;
-}
-
-void PmergeMe::printContainer(const std::vector<int>& container) {
-    const std::size_t maxDisplay = 5;
-    for (std::size_t i = 0; i < container.size() && i < maxDisplay; ++i) {
-        std::cout << container[i] << " ";
-    }
-    if (container.size() > maxDisplay)
-        std::cout << "[...]";
-    std::cout << std::endl;
-}
-
-void PmergeMe::printContainer(const std::deque<int>& container) {
-    const std::size_t maxDisplay = 5;
-    for (std::size_t i = 0; i < container.size() && i < maxDisplay; ++i) {
-        std::cout << container[i] << " ";
-    }
-    if (container.size() > maxDisplay)
-        std::cout << "[...]";
-    std::cout << std::endl;
 }
