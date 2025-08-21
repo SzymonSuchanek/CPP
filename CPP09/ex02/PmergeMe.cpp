@@ -75,7 +75,7 @@ void PmergeMe::fordJohnsonSort(std::deque<int>& deq) {
     if (deq.size() % 2 != 0)
         pending.push_back(deq[deq.size() - 1]);
 
-    std::sort(mainChain.begin(), mainChain.end());
+    fordJohnsonSort(mainChain);
 
     for (std::size_t i = 0; i < pending.size(); ++i) {
         std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pending[i]);
