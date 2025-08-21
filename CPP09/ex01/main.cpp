@@ -1,4 +1,4 @@
-#include "Span.hpp" 
+#include "RPN.hpp" 
 
 int main(int argc, char** argv) {
     if (argc != 2) {
@@ -6,8 +6,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    Span Span;
-    Span.calculate(argv[1]);
+    RPN RPN;
+    RPN.calculate(argv[1]);
 
     return 0;
 }

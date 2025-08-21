@@ -1,20 +1,20 @@
-#include "Span.hpp"
+#include "RPN.hpp"
 
-Span::Span() {}
+RPN::RPN() {}
 
-Span::Span(const Span &other) {
+RPN::RPN(const RPN &other) {
     *this = other;
 }
 
-Span &Span::operator=(const Span &other) {
+RPN &RPN::operator=(const RPN &other) {
     if (this != &other)
         this->_stack = other._stack;
     return *this;
 }
 
-Span::~Span() {}
+RPN::~RPN() {}
 
-void Span::calculate(const std::string& expression) {
+void RPN::calculate(const std::string& expression) {
     std::istringstream iss(expression);
     std::string token;
 
