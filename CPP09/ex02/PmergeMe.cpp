@@ -47,7 +47,7 @@ void PmergeMe::fordJohnsonSort(std::vector<int>& vec) {
     if (vec.size() % 2 != 0)
         pending.push_back(vec[vec.size() - 1]);
 
-    std::sort(mainChain.begin(), mainChain.end());
+    fordJohnsonSort(mainChain);
 
     for (std::size_t i = 0; i < pending.size(); ++i) {
         std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pending[i]);
